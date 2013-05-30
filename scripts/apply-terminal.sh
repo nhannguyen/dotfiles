@@ -25,7 +25,7 @@ do
   then
     mv .$dotfile .$dotfile.old
   fi
-  sudo -u $U ln -s $target/../../terminal_dotfiles/_$dotfile $home_dir/.$dotfile
+  sudo -u $U ln -s $target/../_$dotfile $home_dir/.$dotfile
 done
 
 for terminal_directory in "${terminal_directories[@]}"
@@ -37,5 +37,5 @@ do
   then
     mv .$terminal_directory .$terminal_directory.old
   fi
-  sudo -u $U ln -s $target/../../terminal_directories/$terminal_directory $home_dir/.$terminal_directory
+  sudo -u $U ln -s $target/../$terminal_directory $home_dir/.$terminal_directory
 done
