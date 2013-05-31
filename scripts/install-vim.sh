@@ -14,12 +14,13 @@ target=$(readlink -f "$DIR")
 
 home_dir=$(getent passwd "$U" | cut -d: -f 6)
 
-#if [ ! -f $home_dir/.vim/installed ]
-#then
-  #apt-get install -y curl rake
-  #sudo -u $U curl -Lo- http://bit.ly/janus-bootstrap | sudo -u $U bash
-  #sudo -u $U touch .vim/installed
-#fi
+if [ ! -f $home_dir/.vim/installed ]
+then
+  pacman -S --noconfirm vim ruby rubygems
+  gem install rake --no-rdoc --no-ri
+  sudo -u $U -H curl -Lo- http://bit.ly/janus-bootstrap | sudo -u $U -H bash
+  sudo -u $U -H touch .vim/installed
+fi
 
 terminal_directories=("janus" "vim/colors")
 

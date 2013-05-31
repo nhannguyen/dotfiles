@@ -60,21 +60,18 @@ alias checkout='git checkout'
 alias branch='git branch'
 
 # SimpleHTTPServer python to easily share files
-alias http='python -m SimpleHTTPServer'
+alias http='python3 -m http.server'
 
 # Aliases for tmux
 alias attach='tmux attach'
-alias detach='tmux detach'
+alias detach='tmux detach' # Or Ctrl + b
 
 # Aliases for chef
 alias chef-solo='sudo chef-solo -c /etc/chef/solo.rb -j /etc/chef/node.json'
 
 # Update ubuntu
-alias update='sudo apt-get update && sudo apt-get -y dist-upgrade'
+alias update='sudo pacman -Syu --noconfirm'
 
 # Shutdown and reboot
 alias reboot='sudo reboot'
 alias shutdown='sudo shutdown -P now'
-
-# Apt-get
-alias install='sudo apt-get install'

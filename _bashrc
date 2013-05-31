@@ -101,6 +101,7 @@ then
   JAVA=/usr/local/jdk1.7.0_21/bin
 fi
 SCRIPTS=/home/$USER/.scripts
+GEM=/home/$USER/.gem/ruby/2.0.0/bin
 # Prevent tmux from export the path again
 if [ "$_SKIP_PROFILE" ]
 then
@@ -113,4 +114,7 @@ if [[ ! -z "$JAVA" ]]
 then
   PATH=$PATH:$JAVA
 fi
-export PATH=$PATH:$SCRIPTS
+export PATH=$PATH:$SCRIPTS:$GEM
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus

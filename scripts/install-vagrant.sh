@@ -2,12 +2,13 @@
 
 set -e
 
-if [ ! -f /etc/apt/source.list.d/virtualbox.list ]
+pacman -S --noconfirm virtualbox
+
+if [ -z "$SUDO_USER" ]
 then
-  echo deb http://download.virtualbox.org/virtualbox/debian `lsb_release -cs` contrib | tee /etc/apt/sources.list.d/virtualbox.list
-  wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O - | apt-key add -
+  U=$USER
+else
+  U=$SUDO_USER
 fi
 
-apt-get update
-apt-get install -y linux-headers-$(uname -r) dkms virtualbox-4.2 rubygems ruby-dev
-gem install vagrant --no-rdoc --no-ri
+sudo -u $U -H gem install vagrant --no-rdoc --no-ri

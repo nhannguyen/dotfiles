@@ -33,10 +33,9 @@ else
 fi
 
 # Install some basic packages
-packages="git git-core vim build-essential rake curl tmux htop"
+packages="git vim ruby rubygems curl tmux htop"
 
-apt-get update
-apt-get install -y $packages
+pacman -S --noconfirm $packages
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 target=$(readlink -f "$DIR")
